@@ -1,0 +1,16 @@
+
+<div class="row medium-12.columns">
+<h1> {{ArticlesCtrl.title}}</h1>
+  <p> Welcome to {{ ArticlesCtrl.title }}</p>
+  <div ng-repeat="article in  ArticlesCtrl.articles" class=" row medium-12.columns">
+    <p>Title: {{article.tile}}</p>
+    <p>Title: {{article.text}}</p>
+    <p>Url: {{article.url}}</p>
+    <a ng-href="/articles/show/{{artcile.id}}"> show</a>
+    <br/>
+    <a href="/articles/new"> New Article</a>
+    <br/>
+    <a href="/"> Home</a>
+  </div>
+</div>
+

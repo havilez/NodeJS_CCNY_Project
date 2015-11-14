@@ -1,0 +1,24 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width')
+    title= title
+    block css
+      link(rel='stylesheet', href='/css/style.css')
+      link(rel='stylesheet', href="/components/bootstrap/dist/css/bootstrap.css")
+    block js
+      script(type='text/javascript', src='/components/jquery/dist/jquery.min.js')
+      script(src="/components/angular/angular.js")
+      script(src="/components/angular-route/angular-route.js")
+      script(src="/javascripts/app.js")
+      script(src="/javascripts/home/home.ctrl.js")
+      script(src="/javascripts/articles/articles.ctrl.js")
+      script(src="/javascripts/articles/articles.svc.js")
+      base(href="/")
+
+
+  body(ng-app='my_app')
+    block content
+
+
