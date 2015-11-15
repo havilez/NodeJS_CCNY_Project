@@ -4,16 +4,19 @@ angular.module("my_app").controller('ArticlesController',function ($scope,Articl
 
 
 
+
   this.getArticles = function(){
-      ArticleSvc.getArticles()
-        .then( function(articles){
-          self.articles = articles;
+      ArticlesSvc.getArticles()
+        .then( function(response){
+          self.articles = response.articles;
+          self.title = response.title;
         })
         .catch(function (error) {
           self.error = error;
         });
   }
 
+  this.getArticles();
 
 
 

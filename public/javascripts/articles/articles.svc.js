@@ -2,11 +2,11 @@ angular.module("my_app")
     .service('ArticlesSvc',function ($q, $http) {
 
 
-  function getArticles() {
+  this.getArticles = function() {
     var dfd = $q.defer();
-    $http.get("/api/articles", articles)
+    $http.get("/articles")
       .then(function (response) {
-         dfd.resolve( articles.data );
+         dfd.resolve( response.data );
       });
     return dfd.promise;
   }

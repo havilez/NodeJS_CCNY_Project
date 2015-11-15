@@ -10,15 +10,23 @@ module.exports = function (app) {
 router.get('/', function (req, res, next) {
   Article.find(function (err, articles) {
     if (err) return next(err);
+    res.json({
+      title: 'Articles Page',
+      articles: articles
+    });
+
+    /**
     res.render('article/index', {
       title: 'Articles Page',
       articles: articles
     });
+     **/
   });
 });
 
 router.get('/new', function (req, res, next) {
     res.render('article/new', { title: 'Create New Article' });
+
 });
 
 router.get('/show/:id', function(req,res, next) {
@@ -65,6 +73,10 @@ router.post('/create', function (req, res, next) {
   var article = new Article({ title: req.body.title, url: req.body.url, text: req.body.text });
   article.save(function (err, article) {
     if (err) return next(err);
-    res.redirect('/articles');
+    console.log(article);
+    res.json({
+      article: article
+    });
+   // res.redirect('/articles');
   });
 });
