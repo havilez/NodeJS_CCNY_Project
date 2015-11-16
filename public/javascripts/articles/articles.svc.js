@@ -12,7 +12,7 @@ angular.module("my_app")
   }
 
 
-  this.save = function(article) {
+  this.saveArticle = function(article) {
     var dfd = $q.defer();
     $http.post("/articles/create", article)
       .then(function (response) {
@@ -20,6 +20,15 @@ angular.module("my_app")
       });
     return dfd.promise;
   }
+
+      this.updateArticle = function(article) {
+        var dfd = $q.defer();
+        $http.post("/articles/update", article)
+          .then(function (response) {
+            dfd.resolve( response.data );
+          });
+        return dfd.promise;
+      }
 
   this.getArticle = function(id){
     var dfd = $q.defer();
@@ -32,7 +41,7 @@ angular.module("my_app")
 
   this.deleteArticle = function(article){
     var dfd = $q.defer();
-    $http.post("/articles/" + article._id + "/delete" )
+    $http.get("/articles/delete/" + article._id  )
       .then( function(){
         dfd.resolve();
       })

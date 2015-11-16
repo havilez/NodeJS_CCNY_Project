@@ -12,7 +12,7 @@ angular.module("my_app").controller('ArticlesNewController',function ($location 
 
   self.addArticle = function(){
 
-    ArticlesSvc.save(self.article)
+    ArticlesSvc.saveArticle(self.article)
       .then( function(article_){
         // go to articles page
         console.log( article_ );

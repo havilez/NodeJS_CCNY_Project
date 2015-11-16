@@ -40,32 +40,34 @@ router.get('/show/:id', function(req,res, next) {
 });
 
 router.post('/update', function(req,res, next) {
-  Article.findOneAndUpdate({'_id': req.body.id},
+  Article.findOneAndUpdate({'_id': req.body._id},
       { title: req.body.title, url: req.body.url, text: req.body.text }
       , function (err, article) {
         console.log(err);
       if (err) return next(err);
-      res.redirect('show/' + article.id);
+      res.send(article);
   });
 });
 
 router.get('/edit/:id', function (req, res, next) {
     Article.findById(req.params.id, function (err, article) {
       if (err) return next(err);
+      res.send(article);
+
+      /*
       res.render('article/edit', {
         title: 'Article Edit Page',
         article: article
     });
+    */
   });
 });
 
 router.get('/delete/:id', function(req,res, next) {
-  Article.findOne(req.params.id, function (err, article) {
+  Article.remove({_id: req.params.id}, function (err) {
       if (err) return next(err);
-      article.remove(function(err){
-        if (err) return next(err);
+
         res.redirect('/articles');
-      });
   });
 });
 

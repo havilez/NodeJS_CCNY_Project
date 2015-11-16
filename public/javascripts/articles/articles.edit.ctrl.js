@@ -1,13 +1,10 @@
 angular.module("my_app")
-  .controller('ArticlesEditController',function (ArticlesSvc) {
+  .controller('ArticlesEditController',function ($routeParams,$location, ArticlesSvc) {
 
   self = this;
 
 
-    self.artile = {
-    };
-
-    self.edit = function(articleId) {
+    self.edit = function( articleId) {
 
       ArticlesSvc.getArticle(articleId)
         .then(function (article_) {
@@ -15,16 +12,35 @@ angular.module("my_app")
         });
       }
 
-    self.save = function() {
+    self.update = function() {
 
-      ArticlesSvc.save(self.article)
+      ArticlesSvc.updateArticle(self.article)
         .then( function(article_) {
           $location.path("/articles");
         })
         .catch(function(error){
-          $scope.error = error;
+          self.error = error;
         });
     }
 
+
+
+    self.delete = function(article) {
+
+      ArticlesSvc.deleteArticle(article)
+        .then( function(article_) {
+          $location.path("/articles");
+        })
+        .catch(function(error){
+          self.error = error;
+        });
+    }
+
+
+
+
+    self.article = {};
     self.edit( $routeParams.id )
+
+
   });

@@ -1,4 +1,4 @@
-angular.module("my_app").controller('ArticlesDetailController',function (ArticlesSvc) {
+angular.module("my_app").controller('ArticlesDetailController',function ($routeParams, ArticlesSvc) {
   //  create data fields for article
   //  call service to post article to db
   //  return back to list of articles page
