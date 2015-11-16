@@ -1,15 +1,17 @@
 
+<h1> Welcome to {{ ArticlesCtrl.title }}</h1>
 <div class="row medium-12 columns">
-<h1> {{ArticlesCtrl.title}}</h1>
-  <p> Welcome to {{ ArticlesCtrl.title }}</p>
-  <div ng-repeat="article in  ArticlesCtrl.articles" class=" row medium-12 columns">
-    <p>Title: {{article.title}}</p>
-    <p>Text: {{article.text}}</p>
-    <p>Url: {{article.url}}</p>
-    <p>ID: {{article._id}}</p>
-    <a href="/articles/{{article._id}}/edit" > show</a>
-  </div>
+<h2> {{ArticlesCtrl.title}}</h2>
+  <ul class="list-group" >
+    <li class="list-group-item" ng-repeat="article in  ArticlesCtrl.articles">
+      Title: {{article.title}} <br />
+      Text: {{article.text}}  <br />
+      Url: {{article.url}}   </br />
+      <a href="/articles/{{article._id}}/edit" > show</a>
+    </li>
+  </ul>
   <a href="/articles/new"> New Article</a> <br />
   <a href="/"> Home</a>
+
 </div>
 
