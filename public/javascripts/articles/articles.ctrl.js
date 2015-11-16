@@ -1,11 +1,10 @@
-angular.module("my_app").controller('ArticlesController',function ($scope,ArticlesSvc) {
+angular.module("my_app")
+  .controller('ArticlesController',function ($scope,ArticlesSvc) {
 
   self = this;
 
 
-
-
-  this.getArticles = function(){
+  self.getArticles = function(){
       ArticlesSvc.getArticles()
         .then( function(response){
           self.articles = response.articles;
@@ -16,7 +15,7 @@ angular.module("my_app").controller('ArticlesController',function ($scope,Articl
         });
   }
 
-  this.getArticles();
+  self.getArticles();
 
 
 

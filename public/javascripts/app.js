@@ -14,7 +14,20 @@ angular.module("my_app").config(function($routeProvider, $locationProvider){
   .when("/articles/new", {
     controller: 'ArticlesNewController as newArticleCtrl',
     templateUrl: '/templates/articles.new.html'
-  });
+  })
+   .when("/articles/show", {
+     controller: 'ArticlesDetailController as detailArticleCtrl',
+     templateUrl: '/templates/articles.edit.html'
+   })
+ .when("/articles/:id/edit", {
+   controller: 'ArticlesEditController as editArticleCtrl',
+   templateUrl: '/templates/articles.edit.html'
+  })
+ .when("/articles/:id/delete", {
+   controller: 'ArticlesDeleteController as deleteArticleCtrl',
+   templateUrl: '/templates/articles.delete.html'
+ })
+
     $locationProvider.html5Mode(true);
 });
 

@@ -1,0 +1,24 @@
+
+
+<div class ="row medium-12 columns">
+  <h1>title</h1>
+  <form>
+    <div class ="row medium-12 columns">
+      Title: <input type="text" id="title" name="title" ng-model="articleDetailCtrl.article.title" /><br />
+    </div>
+    <div>
+      Text: <input type="textarea" id="text" name="text" ng-model="articleDetailCtrl.article.text" /><br />
+    </div>
+    <div>
+      Url: <input type="text" id="url" name="url" ng-model="articleDetailCtrl.article.title" /><br />
+    </div>
+
+  </form>
+  <a href="/articles/{{ article._id }}/edit" /> edit article</a>
+  <a href="/articles/{{ article._id }}/delete" /> delete article</a>
+  <a href="/articles"> back to articles</a>
+
+</div>
+
+
+

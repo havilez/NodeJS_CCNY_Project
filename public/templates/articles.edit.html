@@ -1,0 +1,23 @@
+<div class ="row medium-12 columns">
+  <h1>title</h1>
+  <form>
+    <div>
+    <input type="text" id="title"name="title" ng-model="editArticleCtrl.article.title">
+    <label for= 'title'>title</label>
+    </div>
+    <div>
+      <input type="textarea" id="text"name="text" ng-model="editArticleCtrl.article.text">
+      <label for= 'text'>text</label>
+    </div>
+    <div>
+      <input type="text" id="url"name="url" ng-model="editArticleCtrl.article.url">
+      <label for= 'url'>url</label>
+    </div>
+    <button ng-click="editArticleCtrl.save()">add Article</button>
+
+
+  </form>
+
+</div>
+
+

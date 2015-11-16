@@ -8,7 +8,7 @@ var config = {
     app: {
       name: 'appy'
     },
-    port: 3001,
+    port: 3000,
     db: 'mongodb://localhost/appy-development'
   },
 

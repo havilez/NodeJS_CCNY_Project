@@ -10,7 +10,7 @@ module.exports = function (app) {
 router.get('/', function (req, res, next) {
   Article.find(function (err, articles) {
     if (err) return next(err);
-    res.json({
+    res.send({
       title: 'Articles Page',
       articles: articles
     });
@@ -74,9 +74,7 @@ router.post('/create', function (req, res, next) {
   article.save(function (err, article) {
     if (err) return next(err);
     console.log(article);
-    res.json({
-      article: article
-    });
-   // res.redirect('/articles');
+      res.send(article);
   });
+   // res.redirect('/articles');
 });
