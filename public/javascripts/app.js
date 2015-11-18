@@ -23,12 +23,15 @@ angular.module("my_app").config(function($routeProvider, $locationProvider){
    controller: 'ArticlesEditController as detailCtrl',
    templateUrl: '/templates/articles.detail.html'
   })
-     /**
- .when("/articles/:id/delete", {
-   controller: 'ArticlesDeleteController as deleteArticleCtrl',
-   templateUrl: '/templates/articles.delete.html'
- })
-      **/
+   .when('/register', {
+     controller: 'RegisterCtrl',
+     templateUrl: '/templates/register.html'
+   })
+   .when('/login', {
+     controller: 'LoginCtrl',
+     templateUrl: '/templates/login.html'
+   })
+
 
     $locationProvider.html5Mode(true);
 });

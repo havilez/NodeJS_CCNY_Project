@@ -1,0 +1,13 @@
+
+<div class='container'>
+  <ul class="nav" ng-class=
+    "{'navbar navbar-default': mode =='top'}">
+    <li ng-hide="tab.hide()" ng-repeat="tab in tabs" ng-class="{'active': tab.selected()}">
+      <a href="{{tab.path}}">{{tab.title}}</a>
+    </li>
+  </ul>
+  <p ng-if='app.currentUser' class='navbar-text navbar-right'>
+    Signed in as {{app.currentUser.username}}
+  </p>
+
+</div>
