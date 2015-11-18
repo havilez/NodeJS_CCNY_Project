@@ -7,21 +7,32 @@ module.exports = function (app) {
   app.use('/articles', router);
 };
 
-router.get('/', function (req, res, next) {
-  Article.find(function (err, articles) {
-    if (err) return next(err);
-    res.send({
-      title: 'Articles Page',
-      articles: articles
-    });
+var auth =require('../../config/auth');
 
-    /**
-    res.render('article/index', {
+router.use( auth );
+
+router.get('/', function (req, res, next) {
+  // get all articles for a given user
+
+  if ("auth" in req ) {
+
+    Article.find({username: req.auth.username})
+      .exec(function (err, articles) {
+        if (err) return next(err);
+        res.send({
+          title: 'Articles Page',
+          articles: articles
+        });
+
+        /**
+         res.render('article/index', {
       title: 'Articles Page',
       articles: articles
     });
-     **/
-  });
+         **/
+      });
+
+  }
 });
 
 router.get('/new', function (req, res, next) {
@@ -72,7 +83,7 @@ router.get('/delete/:id', function(req,res, next) {
 });
 
 router.post('/create', function (req, res, next) {
-  var article = new Article({ title: req.body.title, url: req.body.url, text: req.body.text });
+  var article = new Article({ username:req.auth.username ,title: req.body.title, url: req.body.url, text: req.body.text });
   article.save(function (err, article) {
     if (err) return next(err);
     console.log(article);

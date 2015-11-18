@@ -3,8 +3,9 @@
     .controller('LoginCtrl', function ($scope, $location, UserSvc) {
       var self = this;
 
-      this.loginFunc = function (username, password) {
-        UserSvc.login(username, password)
+
+      self.loginFunc = function (username, password) {
+        UserSvc.login(self.username, self.password)
           .then(function (user) {
             $scope.$emit('login', user);
             $location.path("/articles");

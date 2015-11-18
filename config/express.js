@@ -33,6 +33,13 @@ module.exports = function(app, config) {
     require(controller)(app);
   });
 
+  // mount custom authentication middleware
+ // var router = require('express').Router();
+ // router.use(require('./app/index'))
+ // var auth = glob.sync(config.root + '/app/index.js');
+ // var authModule = require(auth[0]);
+
+
   /****
   app.use(function(req, res, next){
     recursive('public/javascripts', ['app.js'], function (err, files) {

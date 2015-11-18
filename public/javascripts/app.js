@@ -9,7 +9,10 @@ angular.module("my_app").config(function($routeProvider, $locationProvider){
     })
   .when("/articles", {
     controller: 'ArticlesController as ArticlesCtrl',
-    templateUrl: '/templates/articles.html'
+    templateUrl: '/templates/articles.html',
+    resolve: { async: ['$http', function($http) {
+        return( $http.get('/users'))
+    }]}
   })
   .when("/articles/new", {
     controller: 'ArticlesNewController as newArticleCtrl',
@@ -22,13 +25,14 @@ angular.module("my_app").config(function($routeProvider, $locationProvider){
  .when("/articles/:id/edit", {
    controller: 'ArticlesEditController as detailCtrl',
    templateUrl: '/templates/articles.detail.html'
+
   })
    .when('/register', {
      controller: 'RegisterCtrl',
      templateUrl: '/templates/register.html'
    })
    .when('/login', {
-     controller: 'LoginCtrl',
+     controller: 'LoginCtrl as loginData',
      templateUrl: '/templates/login.html'
    })
 

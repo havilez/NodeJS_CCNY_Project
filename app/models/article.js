@@ -4,10 +4,11 @@ var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 var ArticleSchema = new Schema({
-  title: String,
+  username: { type: String, required: true },
+  title: { type: String, required: true },
   url: String,
-  text: String
-});
+  text: { type: String, required: true }
+})
 
 ArticleSchema.virtual('date')
   .get(function(){

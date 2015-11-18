@@ -1,6 +1,8 @@
 var express = require('express'),
   router = express.Router(),
   config = require('../../config/passport-config'),
+ bcrypt = require('bcrypt'),
+  jwt    = require('jwt-simple'),
   mongoose = require('mongoose'),
   User = mongoose.model('User');
 
@@ -9,7 +11,7 @@ module.exports = function (app) {
   app.use('/sessions', router);
 };
 
-router.post('/sessions', function (req, res, next) {
+router.post('/', function (req, res, next) {
   // search for previously registered user by username
   var username = req.body.username;
 

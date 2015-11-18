@@ -5,7 +5,7 @@
         UserSvc.register(username, password)
           .then(function (user) {
             $scope.$emit('login', user);
-            $location.path("/");
+            $location.path("/articles");
           })
       }
     })

@@ -19,6 +19,7 @@
         })
       }
       svc.register = function (username, password) {
+        delete $http.defaults.headers.common['X-Auth'];
         return $http.post('/users', {
           username: username, password: password
         }).then(function () {
